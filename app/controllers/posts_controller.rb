@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   http_basic_authenticate_with :name => "dhh", :password => "secret", :except => :index
+  respond_to :html, :js, :xml
 
   # GET /posts
   # GET /posts.json
@@ -78,9 +79,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to posts_url }
-      format.json { head :ok }
-    end
+    respond_with(@post)
   end
 end

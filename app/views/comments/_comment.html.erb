@@ -1,3 +1,4 @@
+<div id='comment_<%= comment.id %>'>
 <p>
   <b>Commenter:</b>
   <%= comment.commenter %>
@@ -11,5 +12,7 @@
 <p>
   <%= link_to 'Destory Comment', [comment.post, comment],
                 :confirm => 'Are you sure?',
-                :method => :delete %>
+                :method => :delete, 
+                :remote => true %>
 </p>
+</div>
